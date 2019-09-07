@@ -1,0 +1,24 @@
+---
+
+- name: Install package
+  become: True
+  package:
+    name: unbound
+    state: present
+
+- name: Configure package
+  become: True
+  template:
+    src: unbound.conf.j2
+    dest: /etc/unbound/unbound.conf
+    owner: root
+    group: root
+    mode: 0644
+  notify: Restart service
+
+- name: Start service
+  become: True
+  service:
+    name: unbound
+    state: started
+    enabled: True

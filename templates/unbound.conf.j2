@@ -39,7 +39,7 @@ server:
 
     local-zone: "{{ unbound_public_domain }}" typetransparent
 {% for data in unbound_custom_public_entries %}
-    local-data: {{ data }}
+    local-data: "{{ data }}"
 {% endfor %}
 
 forward-zone:

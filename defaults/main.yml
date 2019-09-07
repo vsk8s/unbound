@@ -3,6 +3,9 @@ unbound_external_interface_ip: ""
 unbound_internal_subnet: ""
 unbound_public_domain: ""
 unbound_private_domain: ""
-unbound_custom_public_entries: ""
-unbound_private_dns_servers: ""
-unbound_public_dns_servers: ""
+unbound_custom_public_entries:
+  - ""
+unbound_private_dns_servers:
+  - ""
+unbound_public_dns_servers:
+  - ""

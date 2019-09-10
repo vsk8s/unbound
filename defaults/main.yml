@@ -3,8 +3,14 @@ unbound_external_interface_ip: ""
 unbound_internal_subnet: ""
 unbound_public_domain: ""
 unbound_private_domain: ""
-unbound_custom_public_entries:
-  - ""
+
+# Put more specific domains first!
+unbound_local_zones: []
+# - name: zone.example
+#   type: typetransparent
+#   local_data:
+#     - site.zone.example IN A 10.0.0.1
+
 unbound_private_dns_servers:
   - ""
 unbound_public_dns_servers:

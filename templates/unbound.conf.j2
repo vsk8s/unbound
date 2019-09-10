@@ -39,9 +39,12 @@ server:
     ratelimit-slabs: 2
     ratelimit-factor: 0
 
-    local-zone: "{{ unbound_public_domain }}" typetransparent
-{% for data in unbound_custom_public_entries %}
+{% for zone in unbound_local_zones %}
+    local-zone: "{{ zone.name }}" {{ zone.type }}
+{% for data in zone.local_data %}
     local-data: "{{ data }}"
+{% endfor %}
+
 {% endfor %}
 
 forward-zone:

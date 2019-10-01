@@ -15,6 +15,7 @@ server:
     interface: "127.0.0.1"
     interface: "::1"
     interface: "{{ unbound_internal_interface_ip }}"
+    interface: "{{ tectonic_master_ip }}"
     outgoing-interface: {{ unbound_external_interface_ip }}
     cache-min-ttl: 300
     cache-max-ttl: 86400

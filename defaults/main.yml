@@ -4,6 +4,7 @@ unbound_internal_subnet: ""
 unbound_public_domain: ""
 unbound_private_domain: ""
 
+unbound_private_domains: []
 # Put more specific domains first!
 unbound_local_zones: []
 # - name: zone.example

@@ -31,7 +31,9 @@ server:
     harden-dnssec-stripped: yes
     use-caps-for-id: yes
     private-domain: "{{ unbound_public_domain }}"
-    private-domain: "{{ unbound_private_domain }}"
+{% for private_domain in unbound_private_domains %}
+    private-domain: "{{ private_domain.domain }}"
+{% endfor %}
     prefetch: yes
 
     ratelimit: 5
@@ -47,10 +49,11 @@ server:
 
 {% endfor %}
 
+{% for private_domain in unbound_private_domains %}
 forward-zone:
-    name: "{{ unbound_private_domain }}."
-{% for server in unbound_private_dns_servers %}
-    forward-addr: {{ server }}
+    name: "{{ private_domain.domain }}."
+    forward-addr: {{ private_domain.dns_server }}
+
 {% endfor %}
 
 forward-zone:
